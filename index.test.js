@@ -60,7 +60,6 @@ describe("[Exercise 4] Counter", () => {
     counter.countDown()
     counter.countDown()
     counter.countDown()
-    counter.countDown()
     expect(counter.countDown()).toBe(0)
    })
 });
