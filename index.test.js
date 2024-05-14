@@ -69,12 +69,37 @@ describe("[Exercise 5] Seasons", () => {
   beforeEach(() => {
     seasons = new utils.Seasons(); // each test must start with fresh seasons
   });
-   test('[9] the FIRST call of seasons.next returns "summer"', () => {})
-   test('[10] the SECOND call of seasons.next returns "fall"', () => {})
-   test('[11] the THIRD call of seasons.next returns "winter"', () => {})
-   test('[12] the FOURTH call of seasons.next returns "spring"', () => {})
-   test('[13] the FIFTH call of seasons.next returns again "summer"', () => {})
-   test('[14] the 40th call of seasons.next returns "spring"', () => {})
+   test('[9] the FIRST call of seasons.next returns "summer"', () => {
+    expect(seasons.next()).toBe('summer')
+   })
+   test('[10] the SECOND call of seasons.next returns "fall"', () => {
+    seasons.next(); // Move to the next season
+    expect(seasons.next()).toBe('fall');
+   })
+   test('[11] the THIRD call of seasons.next returns "winter"', () => {
+    seasons.next(); // Move to the next season
+    seasons.next(); // Move to the next season
+    expect(seasons.next()).toBe('winter')
+   })
+   test('[12] the FOURTH call of seasons.next returns "spring"', () => {
+    seasons.next(); // Move to the next season
+    seasons.next(); // Move to the next season
+    seasons.next(); // Move to the next season
+    expect(seasons.next()).toBe('spring');
+   })
+   test('[13] the FIFTH call of seasons.next returns again "summer"', () => {
+        // Loop through all seasons to reset to "summer"
+        for (let i = 0; i < 5; i++) {
+          seasons.next();
+        }
+        expect(seasons.next()).toBe('summer');
+   })
+   test('[14] the 40th call of seasons.next returns "spring"', () => {
+    for (let i = 0; i < 39; i++) {
+      seasons.next();
+    }
+    expect(seasons.next()).toBe('spring');
+   })
 });
 
 describe("[Exercise 6] Car", () => {
