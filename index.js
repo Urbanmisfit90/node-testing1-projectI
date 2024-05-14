@@ -24,10 +24,10 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
-  for (let key in obj) {
-    obj[key] = obj[key].trim();
+  for (let prop in obj) {
+    obj[prop] = obj[prop].trim()
   }
-  return obj
+  return obj;
 }
 
 /**
